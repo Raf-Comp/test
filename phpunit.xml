@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<phpunit
+    bootstrap="tests/bootstrap.php"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    stopOnFailure="false"
+    >
+    <testsuites>
+        <testsuite name="Unit Tests">
+            <directory prefix="Test" suffix=".php">./tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Integration Tests">
+            <directory prefix="Test" suffix=".php">./tests/Integration</directory>
+        </testsuite>
+        <testsuite name="Security Tests">
+            <directory prefix="Test" suffix=".php">./tests/Security</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./includes</directory>
+            <exclude>
+                <directory>./tests</directory>
+                <directory>./vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <php>
+        <env name="WP_TESTS_DIR" value="/tmp/wordpress-tests-lib"/>
+        <env name="WP_CORE_DIR" value="/tmp/wordpress/"/>
+    </php>
+</phpunit> 
