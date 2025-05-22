@@ -1,0 +1,413 @@
+# Copyright (C) 2024 AI Chat Assistant
+# This file is distributed under the same license as the AI Chat Assistant package.
+msgid ""
+msgstr ""
+"Project-Id-Version: AI Chat Assistant\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ai-chat-assistant\n"
+"POT-Creation-Date: 2024-03-20 12:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: includes/Helpers/TranslationHelper.php:20
+msgid "Load More"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:21
+msgid "Clear History"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:22
+msgid "Are you sure you want to clear this chat history?"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:23
+msgid "Select a session to view history"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:24
+msgid "Error loading session:"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:25
+msgid "Error clearing history:"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:26
+msgid "Chat History"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:27
+msgid "No chat sessions found."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:28
+msgid "Loading..."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:29
+msgid "Error:"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:30
+msgid "Success:"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:31
+msgid "Are you sure you want to delete this session?"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:32
+msgid "Session deleted successfully."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:33
+msgid "Error deleting session:"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:34
+msgid "Conversation exported successfully."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:35
+msgid "Error exporting conversation:"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:36
+msgid "Conversation duplicated successfully."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:37
+msgid "Error duplicating conversation:"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:47
+msgid "AI Chat Assistant Settings"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:48
+msgid "Settings saved successfully."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:49
+msgid "API Settings"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:50
+msgid "Claude API Key"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:51
+msgid "Toggle password visibility"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:52
+msgid "Test Connection"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:53
+msgid "GitHub Token"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:54
+msgid "GitLab Token"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:55
+msgid "Bitbucket Token"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:56
+msgid "Interface Settings"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:57
+msgid "Theme"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:58
+msgid "Light"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:59
+msgid "Dark"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:60
+msgid "System"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:61
+msgid "Message History Limit"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:62
+msgid "Maximum number of messages to keep in history."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:72
+msgid "Manage Repositories"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:73
+msgid "Sources"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:74
+msgid "Saved Repositories"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:75
+msgid "Language Filters"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:76
+msgid "Search repositories..."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:78
+msgid "Name (A-Z)"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:79
+msgid "Name (Z-A)"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:80
+msgid "Newest"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:81
+msgid "Oldest"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:84
+msgid "Toggle dark/light mode"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:85
+msgid "Add Repository"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:86
+msgid "No saved repositories"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:87
+msgid "You don't have any saved repositories yet. Add your first repository."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:88
+msgid "Browse Files"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:89
+msgid "Refresh Metadata"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:90
+msgid "Delete Repository"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:91
+msgid "Type:"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:92
+msgid "Added:"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:93
+msgid "Languages:"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:94
+msgid "Open in"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:95
+msgid "No GitHub Repositories"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:96
+msgid "No repositories found in your GitHub account."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:97
+msgid "Check Settings"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:98
+msgid "Last Update:"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:99
+msgid "Main Language:"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:100
+msgid "Open in GitHub"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:101
+msgid "Add"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:102
+msgid "No GitLab Repositories"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:103
+msgid "No repositories found in your GitLab account."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:104
+msgid "Open in GitLab"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:105
+msgid "No Bitbucket Repositories"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:106
+msgid "No repositories found in your Bitbucket account."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:107
+msgid "Open in Bitbucket"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:108
+msgid "File Browser"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:109
+msgid "Search files..."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:110
+msgid "Loading files..."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:111
+msgid "Copy"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:112
+msgid "Use in Chat"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:113
+msgid "Loading content..."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:114
+msgid "Delete Confirmation"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:115
+msgid "Are you sure you want to delete repository"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:116
+msgid "This operation is irreversible."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:117
+msgid "Cancel"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:118
+msgid "Delete"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:128
+msgid "Success"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:129
+msgid "Error"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:130
+msgid "Warning"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:131
+msgid "Information"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:132
+msgid "Claude API key is not configured."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:133
+msgid "ClaudeClient class does not exist."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:134
+msgid "Connection to Claude API is not working."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:135
+msgid "Selected Claude model is not available."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:136
+msgid "GitHub token is not configured."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:137
+msgid "GitHubClient class does not exist."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:138
+msgid "Connection to GitHub API is not working."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:139
+msgid "GitLab token is not configured."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:140
+msgid "Connection to GitLab API is not working."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:141
+msgid "Bitbucket credentials are not configured."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:142
+msgid "Connection to Bitbucket API is not working."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:143
+msgid "Missing %d out of %d required database tables. Use the \"Repair\" button in the \"Database Status\" section."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:144
+msgid "Missing file: %s (%s)"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:145
+msgid "File is not readable: %s (%s)"
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:146
+msgid "Configure Claude API key in plugin settings."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:147
+msgid "Configure GitHub token in plugin settings."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:148
+msgid "Configure GitLab token in plugin settings."
+msgstr ""
+
+#: includes/Helpers/TranslationHelper.php:149
+msgid "Configure Bitbucket credentials in plugin settings."
+msgstr ""

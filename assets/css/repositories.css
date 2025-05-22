@@ -1,0 +1,994 @@
+@import 'fonts.css';
+
+/* Font definitions */
+@font-face {
+    font-family: 'System UI';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('-apple-system'),
+         local('BlinkMacSystemFont'),
+         local('Segoe UI'),
+         local('Roboto'),
+         local('Helvetica Neue'),
+         local('Arial'),
+         local('sans-serif');
+}
+
+@font-face {
+    font-family: 'System Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Consolas'),
+         local('Monaco'),
+         local('Andale Mono'),
+         local('Ubuntu Mono'),
+         local('monospace');
+}
+
+:root {
+    --font-sans: 'System UI', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-mono: 'System Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #f3f4f6;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Podstawowe style strony */
+.aica-dashboard {
+  display: flex;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.aica-page-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+/* Sidebar */
+.aica-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.aica-sidebar-section {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.aica-sidebar-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 16px 20px;
+  margin: 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.aica-sources-list {
+  margin: 0;
+  padding: 12px 0;
+  list-style: none;
+}
+
+.aica-source-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-primary);
+}
+
+.aica-source-item:hover {
+  background: var(--secondary-color);
+}
+
+.aica-source-item.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.aica-source-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.aica-source-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.aica-source-count {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 12px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.aica-source-item.active .aica-source-count {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.aica-filters-container {
+  padding: 16px 20px;
+}
+
+.aica-filter-item {
+  margin-bottom: 8px;
+}
+
+.aica-filter-label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.aica-filter-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--secondary-color);
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+/* Main content */
+.aica-main-content {
+  flex: 1;
+}
+
+.aica-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  background: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: var(--card-shadow);
+}
+
+.aica-search-container {
+  position: relative;
+  width: 300px;
+}
+
+.aica-search-input {
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.aica-search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.aica-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+
+.aica-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aica-sort-select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-size: 14px;
+  background-color: white;
+}
+
+.aica-sort-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.aica-theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.aica-theme-toggle:hover {
+  background: var(--secondary-color);
+  color: var(--text-primary);
+}
+
+.aica-add-repo-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.aica-add-repo-button:hover {
+  background: var(--primary-hover);
+}
+
+/* Repositories container */
+.aica-repositories-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.aica-repos-tab {
+  padding: 24px;
+  display: none;
+}
+
+.aica-repos-tab.active {
+  display: block;
+}
+
+.aica-repositories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+/* Repository Card */
+.aica-repository-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.aica-repository-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.aica-repo-header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.aica-repo-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: #f6f8fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: var(--primary-color);
+  font-size: 24px;
+}
+
+.aica-repo-title {
+  flex: 1;
+}
+
+.aica-repo-title h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.aica-repo-owner {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.aica-repo-actions {
+  margin-left: 8px;
+}
+
+.aica-dropdown {
+  position: relative;
+}
+
+.aica-dropdown-toggle {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.aica-dropdown-toggle:hover {
+  background: var(--secondary-color);
+}
+
+.aica-dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 200px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  z-index: 100;
+  display: none;
+  border: 1px solid var(--border-color);
+}
+
+.aica-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.aica-dropdown-item:hover {
+  background: var(--secondary-color);
+}
+
+.aica-dropdown-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 8px 0;
+}
+
+.aica-dropdown-item.aica-delete-repo {
+  color: var(--error-color);
+}
+
+.aica-dropdown-item.aica-delete-repo:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.aica-repo-body {
+  padding: 20px;
+}
+
+.aica-repo-description {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.aica-repo-metadata {
+  background: #f6f8fa;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.aica-meta-item {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.aica-meta-item:last-child {
+  margin-bottom: 0;
+}
+
+.aica-meta-label {
+  font-weight: 500;
+  width: 100px;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.aica-meta-value {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.aica-repo-footer {
+  padding: 16px 20px;
+  background: #f9fafb;
+  border-top: 1px solid var(--border-color);
+}
+
+.aica-repo-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+/* Button styles */
+.aica-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.aica-button-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.aica-button-primary:hover {
+  background: var(--primary-hover);
+}
+
+.aica-button-secondary {
+  background: white;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.aica-button-secondary:hover {
+  background: var(--secondary-color);
+}
+
+/* Empty state */
+.aica-empty-state {
+  text-align: center;
+  padding: 60px 0;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 2px dashed #e5e7eb;
+  margin: 24px;
+}
+
+.aica-empty-icon {
+  margin-bottom: 20px;
+  color: #9ca3af;
+  animation: pulse 2s infinite;
+}
+
+.aica-empty-icon .dashicons {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+.aica-empty-state h2 {
+  color: #374151;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.aica-empty-state p {
+  color: #6b7280;
+  margin-bottom: 20px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* File browser */
+.aica-file-browser-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.aica-modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: modal-appear 0.3s ease-out;
+}
+
+@keyframes modal-appear {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.aica-modal-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aica-modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.aica-modal-close {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.aica-modal-close:hover {
+  background: var(--secondary-color);
+  color: var(--text-primary);
+}
+
+.aica-file-browser-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  height: 70vh;
+}
+
+.aica-file-browser-sidebar {
+  width: 300px;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.aica-file-browser-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.aica-repo-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.aica-repo-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.aica-branch-selector {
+  margin-bottom: 16px;
+}
+
+.aica-branch-selector select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-size: 14px;
+  background-color: white;
+}
+
+.aica-file-search {
+  position: relative;
+}
+
+.aica-file-search input {
+  width: 100%;
+  padding: 8px 12px 8px 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-size: 14px;
+}
+
+.aica-file-search:before {
+  content: "\f179";
+  font-family: dashicons;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.aica-file-tree-container {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+}
+
+.aica-loading-files {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: var(--text-secondary);
+}
+
+.aica-file-tree-item {
+  margin-bottom: 4px;
+}
+
+.aica-file-tree-folder,
+.aica-file-tree-file {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.aica-file-tree-folder:hover,
+.aica-file-tree-file:hover {
+  background: var(--secondary-color);
+}
+
+.aica-file-tree-folder.expanded,
+.aica-file-tree-file.active {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-color);
+}
+
+.aica-file-tree-folder .dashicons,
+.aica-file-tree-file .dashicons {
+  margin-right: 8px;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.aica-file-tree-children {
+  margin-left: 20px;
+}
+
+.aica-file-content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.aica-file-content-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aica-file-path {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-family: monospace;
+  padding: 6px 12px;
+  background: #f6f8fa;
+  border-radius: 6px;
+  max-width: 600px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.aica-file-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.aica-file-content-body {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+}
+
+.aica-loading-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+}
+
+#aica-file-content {
+  margin: 0;
+  padding: 16px;
+  border-radius: 0;
+  overflow: auto;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  background: #f6f8fa;
+  height: 100%;
+}
+
+#aica-file-content code {
+  font-family: monospace;
+  tab-size: 4;
+}
+
+/* Dialog */
+.aica-modal-sm {
+  max-width: 500px;
+}
+
+.aica-modal-body {
+  padding: 24px;
+}
+
+.aica-modal-footer {
+  padding: 16px 24px;
+  background: #f9fafb;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Notifications */
+.aica-notifications-container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 320px;
+}
+
+.aica-notification {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  background: white;
+  border-left: 4px solid;
+}
+
+.aica-notification-success {
+  border-left-color: var(--success-color);
+}
+
+.aica-notification-error {
+  border-left-color: var(--error-color);
+}
+
+.aica-notification-icon {
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aica-notification-success .aica-notification-icon {
+  color: var(--success-color);
+}
+
+.aica-notification-error .aica-notification-icon {
+  color: var(--error-color);
+}
+
+.aica-notification-content {
+  flex: 1;
+}
+
+.aica-notification-content p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+/* Loading animations */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.aica-loading .dashicons-update {
+  animation: spin 1s linear infinite;
+}
+
+/* Dark mode */
+body.aica-dark-mode {
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --border-color: #374151;
+  --secondary-color: #1f2937;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+body.aica-dark-mode .aica-sidebar-section,
+body.aica-dark-mode .aica-toolbar,
+body.aica-dark-mode .aica-repositories-content,
+body.aica-dark-mode .aica-repository-card,
+body.aica-dark-mode .aica-modal-content,
+body.aica-dark-mode .aica-notification {
+  background: #111827;
+}
+
+body.aica-dark-mode .aica-search-input,
+body.aica-dark-mode .aica-sort-select,
+body.aica-dark-mode #aica-branch-select,
+body.aica-dark-mode #aica-file-search {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f9fafb;
+}
+
+body.aica-dark-mode .aica-theme-toggle,
+body.aica-dark-mode .aica-button-secondary {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f9fafb;
+}
+
+body.aica-dark-mode .aica-button-secondary:hover {
+  background: #374151;
+}
+
+body.aica-dark-mode .aica-repo-icon,
+body.aica-dark-mode .aica-repo-metadata,
+body.aica-dark-mode .aica-file-path,
+body.aica-dark-mode #aica-file-content {
+  background: #1f2937;
+}
+
+body.aica-dark-mode .aica-repo-footer,
+body.aica-dark-mode .aica-modal-footer,
+body.aica-dark-mode .aica-empty-state {
+  background: #1f2937;
+}
+
+body.aica-dark-mode .aica-empty-state {
+  border-color: #374151;
+}
+
+body.aica-dark-mode .aica-dropdown-menu {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+body.aica-dark-mode .aica-dropdown-item:hover {
+  background: #374151;
+}
+
+body.aica-dark-mode .aica-dropdown-divider {
+  background: #374151;
+}
+
+body.aica-dark-mode .aica-file-tree-folder.expanded,
+body.aica-dark-mode .aica-file-tree-file.active {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+body.aica-dark-mode .aica-file-tree-folder:hover,
+body.aica-dark-mode .aica-file-tree-file:hover {
+  background: #374151;
+}
+
+body.aica-dark-mode .aica-loading-content {
+  background: rgba(17, 24, 39, 0.8);
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .aica-dashboard {
+    flex-direction: column;
+  }
+  
+  .aica-sidebar {
+    width: 100%;
+  }
+  
+  .aica-repositories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  
+  .aica-file-browser-container {
+    flex-direction: column;
+  }
+  
+  .aica-file-browser-sidebar {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aica-toolbar {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  
+  .aica-search-container {
+    width: 100%;
+  }
+  
+  .aica-toolbar-actions {
+    justify-content: space-between;
+  }
+}
+
+/* Update font-family references */
+body {
+    font-family: var(--font-sans);
+}
+
+pre, code {
+    font-family: var(--font-mono);
+}

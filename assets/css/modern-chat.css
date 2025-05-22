@@ -1,0 +1,2183 @@
+/* Modern Chat CSS 2025 - AI Chat Assistant
+ * Plik zawiera kompletne style dla interfejsu czatu
+ * Zgodne z trendami UI/UX 2025
+ */
+
+@import 'fonts.css';
+@import 'variables.css';
+@import 'components.css';
+
+/* System Preferences Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color-scheme: light;
+    }
+}
+
+/* System preferences support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: #818CF8;
+        --primary-light: #A5B4FC;
+        --primary-dark: #6366F1;
+        --secondary: #0F172A;
+        --secondary-light: #1E293B;
+        --secondary-lighter: #334155;
+        --neutral-50: #0F172A;
+        --neutral-100: #1E293B;
+        --neutral-200: #334155;
+        --neutral-300: #475569;
+        --neutral-400: #64748B;
+        --neutral-500: #94A3B8;
+        --neutral-600: #CBD5E1;
+        --neutral-700: #E2E8F0;
+        --neutral-800: #F1F5F9;
+        --neutral-900: #F8FAFC;
+        --user-bubble: #6366F1;
+        --ai-bubble: #1E293B;
+        --ai-text: #E2E8F0;
+        --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+}
+
+:root {
+  /* Główna paleta kolorów 2025 */
+  --primary: #6366F1;
+  --primary-light: #818CF8;
+  --primary-dark: #4F46E5;
+  --secondary: #0F172A;
+  --secondary-light: #1E293B;
+  --secondary-lighter: #334155;
+  
+  /* Neutralne kolory */
+  --neutral-50: #F8FAFC;
+  --neutral-100: #F1F5F9;
+  --neutral-200: #E2E8F0;
+  --neutral-300: #CBD5E1;
+  --neutral-400: #94A3B8;
+  --neutral-500: #64748B;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1E293B;
+  --neutral-900: #0F172A;
+  
+  /* Kolory funkcyjne */
+  --success: #10B981;
+  --success-light: #D1FAE5;
+  --warning: #F59E0B;
+  --warning-light: #FEF3C7;
+  --error: #EF4444;
+  --error-light: #FEE2E2;
+  
+  /* Kolory bąbelków czatu */
+  --user-bubble: var(--primary);
+  --ai-bubble: var(--neutral-100);
+  --ai-text: var(--neutral-800);
+  
+  /* Efekty */
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --hover-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Wymiary - zoptymalizowane */
+  --sidebar-width: 280px;
+  --sidebar-collapsed-width: 60px;
+  --border-radius-sm: 8px;
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  --spacing-xs: 8px;
+  --spacing: 14px;
+  --spacing-lg: 20px;
+  --spacing-xl: 28px;
+  
+  /* Typografia */
+  --font-sans: 'System UI', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: 'System Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+  /* Kolory */
+  --aica-primary: #007bff;
+  --aica-secondary: #6c757d;
+  --aica-success: #28a745;
+  --aica-danger: #dc3545;
+  --aica-warning: #ffc107;
+  --aica-info: #17a2b8;
+  --aica-light: #f8f9fa;
+  --aica-dark: #343a40;
+  
+  /* Typografia */
+  --aica-font-size-base: 14px;
+  --aica-font-size-sm: 12px;
+  --aica-font-size-lg: 16px;
+  
+  /* Layout */
+  --aica-sidebar-width: 300px;
+  --aica-sidebar-collapsed-width: 60px;
+  --aica-header-height: 60px;
+  --aica-footer-height: 60px;
+  --aica-border-radius: 8px;
+  --aica-spacing: 16px;
+  
+  /* Cienie */
+  --aica-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --aica-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --aica-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  /* Animacje */
+  --aica-transition-speed: 0.3s;
+}
+
+/* Tryb ciemny */
+.dark-mode {
+  --primary: #818CF8;
+  --primary-light: #A5B4FC;
+  --primary-dark: #6366F1;
+  
+  --secondary: #0F172A;
+  --secondary-light: #1E293B;
+  --secondary-lighter: #334155;
+  
+  --neutral-50: #0F172A;
+  --neutral-100: #1E293B;
+  --neutral-200: #334155;
+  --neutral-300: #475569;
+  --neutral-400: #64748B;
+  --neutral-500: #94A3B8;
+  --neutral-600: #CBD5E1;
+  --neutral-700: #E2E8F0;
+  --neutral-800: #F1F5F9;
+  --neutral-900: #F8FAFC;
+  
+  --user-bubble: #6366F1;
+  --ai-bubble: #1E293B;
+  --ai-text: #E2E8F0;
+  
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Reset i podstawowe style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: var(--neutral-50);
+  color: var(--neutral-900);
+  min-height: 100vh;
+  transition: background-color var(--hover-transition), color var(--hover-transition);
+}
+
+/* Główny kontener czatu */
+.aica-chat-wrapper {
+  display: flex;
+  height: calc(100vh - 32px); /* Wysokość bez górnego paska WP Admin */
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Panel boczny - zoptymalizowany */
+.aica-chat__sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--neutral-50);
+  border-right: 1px solid var(--neutral-200);
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.dark-mode .aica-chat__sidebar {
+  background-color: var(--secondary);
+  border-right-color: var(--neutral-700);
+}
+
+.aica-chat__sidebar--collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+
+.aica-chat__sidebar-header {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.dark-mode .aica-chat__sidebar-header {
+  border-bottom-color: var(--neutral-700);
+}
+
+.aica-branding {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.aica-logo {
+  width: 36px;
+  height: 36px;
+  background-color: var(--primary);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+.aica-branding h1 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aica-chat__sidebar.collapsed .aica-branding h1 {
+  display: none;
+}
+
+.aica-chat__sidebar-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--neutral-100);
+  border: none;
+  cursor: pointer;
+  color: var(--neutral-500);
+  transition: background-color var(--hover-transition), color var(--hover-transition);
+}
+
+.dark-mode .aica-chat__sidebar-toggle {
+  background: var(--secondary-light);
+  color: var(--neutral-400);
+}
+
+.aica-chat__sidebar-toggle:hover {
+  background-color: var(--neutral-200);
+  color: var(--neutral-800);
+}
+
+.dark-mode .aica-chat__sidebar-toggle:hover {
+  background-color: var(--secondary-lighter);
+  color: var(--neutral-300);
+}
+
+.aica-chat__sidebar.collapsed .aica-chat__sidebar-toggle .dashicons {
+  transform: rotate(180deg);
+}
+
+/* Akcje w panelu bocznym */
+.aica-chat__sidebar-actions {
+  padding: 12px;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.dark-mode .aica-chat__sidebar-actions {
+  border-bottom-color: var(--neutral-700);
+}
+
+.aica-action-button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color var(--hover-transition);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.aica-action-button:hover {
+  background-color: var(--primary-dark);
+}
+
+.aica-chat__sidebar.collapsed .aica-button-text {
+  display: none;
+}
+
+.aica-chat__sidebar.collapsed .aica-action-button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+/* Zakładki */
+.aica-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--neutral-200);
+  padding: 0 12px;
+}
+
+.dark-mode .aica-tabs {
+  border-bottom-color: var(--neutral-700);
+}
+
+.aica-chat__sidebar.collapsed .aica-tabs {
+  flex-direction: column;
+  border-bottom: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.aica-tab {
+  flex: 1;
+  padding: 14px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--neutral-500);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: color var(--hover-transition), border-color var(--hover-transition);
+}
+
+.aica-chat__sidebar.collapsed .aica-tab {
+  justify-content: center;
+  padding: 10px 0;
+  margin-bottom: 6px;
+  border-bottom: none;
+  border-left: 3px solid transparent;
+}
+
+.aica-tab:hover {
+  color: var(--neutral-800);
+}
+
+.dark-mode .aica-tab:hover {
+  color: var(--neutral-300);
+}
+
+.aica-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.dark-mode .aica-tab.active {
+  color: var(--primary-light);
+  border-bottom-color: var(--primary-light);
+}
+
+.aica-chat__sidebar.collapsed .aica-tab.active {
+  border-bottom-color: transparent;
+  border-left-color: var(--primary);
+  background-color: var(--neutral-100);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.dark-mode .aica-chat__sidebar.collapsed .aica-tab.active {
+  background-color: var(--secondary-light);
+  border-left-color: var(--primary-light);
+}
+
+.aica-chat__sidebar.collapsed .aica-tab-text {
+  display: none;
+}
+
+/* Zawartość zakładek */
+.aica-tab-content {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.aica-tab-content.active {
+  display: flex;
+}
+
+/* Wyszukiwarka rozmów */
+.aica-search-container {
+  padding: 12px;
+  position: relative;
+}
+
+.aica-search-input {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--neutral-200);
+  background-color: var(--neutral-50);
+  font-size: 13px;
+  color: var(--neutral-900);
+  transition: border-color var(--hover-transition), box-shadow var(--hover-transition);
+}
+
+.dark-mode .aica-search-input {
+  background-color: var(--secondary-light);
+  border-color: var(--neutral-700);
+  color: var(--neutral-300);
+}
+
+.aica-search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.dark-mode .aica-search-input:focus {
+  box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2);
+}
+
+.aica-search-icon {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--neutral-500);
+  pointer-events: none;
+}
+
+.aica-chat__sidebar.collapsed .aica-search-container {
+  display: none;
+}
+
+/* Lista rozmów - zoptymalizowana */
+.aica-sessions-list {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.aica-session-item {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--neutral-200);
+  cursor: pointer;
+  transition: background-color var(--hover-transition);
+}
+
+.dark-mode .aica-session-item {
+  border-bottom-color: var(--neutral-700);
+}
+
+.aica-session-item:hover {
+  background-color: var(--neutral-100);
+}
+
+.dark-mode .aica-session-item:hover {
+  background-color: var(--secondary-light);
+}
+
+.aica-session-item.active {
+  background-color: var(--primary-light);
+  color: white;
+}
+
+.dark-mode .aica-session-item.active {
+  background-color: var(--primary-dark);
+}
+
+.aica-session-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.aica-session-title {
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aica-session-date {
+  font-size: 11px;
+  color: var(--neutral-500);
+}
+
+.aica-session-item.active .aica-session-date {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.aica-session-preview {
+  font-size: 12px;
+  color: var(--neutral-600);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.aica-session-item.active .aica-session-preview {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Info o modelu w panelu bocznym */
+.aica-model-info-sidebar {
+  padding: 12px;
+  border-bottom: 1px solid var(--neutral-200);
+  font-size: 13px;
+}
+
+.aica-model-info-sidebar h4 {
+  font-size: 14px;
+  margin: 0 0 8px 0;
+  color: var(--neutral-700);
+}
+
+.aica-model-info-sidebar p {
+  margin: 0 0 8px 0;
+  color: var(--neutral-600);
+}
+
+.aica-help-text {
+  color: var(--neutral-500);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.aica-model-info-sidebar a.aica-button-sm {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.dark-mode .aica-model-info-sidebar {
+  border-bottom-color: var(--neutral-700);
+}
+
+.dark-mode .aica-model-info-sidebar h4 {
+  color: var(--neutral-300);
+}
+
+.dark-mode .aica-model-info-sidebar p {
+  color: var(--neutral-400);
+}
+
+.dark-mode .aica-help-text {
+  color: var(--neutral-500);
+}
+
+/* Stopka panelu bocznego */
+.aica-chat__sidebar-footer {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--neutral-200);
+  margin-top: auto;
+}
+
+.dark-mode .aica-chat__sidebar-footer {
+  border-top-color: var(--neutral-700);
+}
+
+.aica-chat__sidebar.collapsed .aica-chat__sidebar-footer {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aica-version {
+  font-size: 11px;
+  color: var(--neutral-500);
+}
+
+.aica-settings-link {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neutral-500);
+  transition: background-color var(--hover-transition), color var(--hover-transition);
+  text-decoration: none;
+  background-color: var(--neutral-100);
+}
+
+.dark-mode .aica-settings-link {
+  background-color: var(--secondary-light);
+}
+
+.aica-settings-link:hover {
+  background-color: var(--neutral-200);
+  color: var(--neutral-800);
+}
+
+.dark-mode .aica-settings-link:hover {
+  background-color: var(--secondary-lighter);
+  color: var(--neutral-300);
+}
+
+/* Panel główny - zoptymalizowany */
+.aica-main-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.dark-mode .aica-main-panel {
+  background-color: var(--secondary);
+}
+
+.aica-main-header {
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--neutral-200);
+  background-color: white;
+}
+
+.dark-mode .aica-main-header {
+  border-bottom-color: var(--neutral-700);
+  background-color: var(--secondary);
+}
+
+.aica-conversation-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.aica-conversation-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.aica-conversation-date {
+  font-size: 12px;
+  color: var(--neutral-500);
+}
+
+.aica-main-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.aica-toolbar-button {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--neutral-100);
+  color: var(--neutral-600);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--hover-transition), color var(--hover-transition);
+}
+
+.dark-mode .aica-toolbar-button {
+  background-color: var(--secondary-light);
+  color: var(--neutral-400);
+}
+
+.aica-toolbar-button:hover {
+  background-color: var(--neutral-200);
+  color: var(--neutral-800);
+}
+
+.dark-mode .aica-toolbar-button:hover {
+  background-color: var(--secondary-lighter);
+  color: var(--neutral-300);
+}
+
+/* Dropdown menu */
+.aica-dropdown {
+  position: relative;
+}
+
+.aica-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  min-width: 220px;
+  z-index: 100;
+  padding: 8px;
+  display: none;
+  border: 1px solid var(--neutral-200);
+}
+
+.dark-mode .aica-dropdown-menu {
+  background-color: var(--secondary-light);
+  border-color: var(--neutral-700);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.aica-dropdown.open .aica-dropdown-menu {
+  display: block;
+  animation: fadeInDown 0.2s ease forwards;
+}
+
+.aica-dropdown-item {
+  padding: 8px 10px;
+  font-size: 13px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: var(--border-radius-sm);
+  color: var(--neutral-700);
+  transition: background-color var(--hover-transition);
+}
+
+.dark-mode .aica-dropdown-item {
+  color: var(--neutral-400);
+}
+
+.aica-dropdown-item:hover {
+  background-color: var(--neutral-100);
+  color: var(--neutral-900);
+}
+
+.dark-mode .aica-dropdown-item:hover {
+  background-color: var(--secondary-lighter);
+  color: var(--neutral-300);
+}
+
+.aica-dropdown-item.aica-delete-item {
+  color: var(--error);
+}
+
+.aica-dropdown-item.aica-delete-item:hover {
+  background-color: var(--error-light);
+  color: var(--error);
+}
+
+.dark-mode .aica-dropdown-item.aica-delete-item:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+}
+
+.aica-dropdown-divider {
+  height: 1px;
+  margin: 6px 0;
+  background-color: var(--neutral-200);
+}
+
+.dark-mode .aica-dropdown-divider {
+  background-color: var(--neutral-700);
+}
+
+/* Obszar wiadomości */
+.aica-chat__messages {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing);
+  padding: var(--spacing);
+  overflow-y: auto;
+}
+
+.aica-chat__message {
+  --message-bg: var(--ai-bubble);
+  --message-color: var(--ai-text);
+  background-color: var(--message-bg);
+  color: var(--message-color);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+}
+
+.aica-chat__message--user {
+  --message-bg: var(--user-bubble);
+  --message-color: white;
+  justify-self: end;
+}
+
+/* Use modern CSS features */
+.aica-chat__input {
+  position: sticky;
+  bottom: 0;
+  background-color: var(--neutral-50);
+  padding: var(--spacing);
+  border-top: 1px solid var(--neutral-200);
+  backdrop-filter: blur(8px);
+}
+
+/* Use CSS containment for better performance */
+.aica-chat__message-bubble {
+  contain: content;
+  will-change: transform;
+}
+
+/* Use CSS logical properties for better RTL support */
+.aica-chat__sidebar {
+  border-inline-end: 1px solid var(--neutral-200);
+  padding-inline: var(--spacing);
+}
+
+/* Use modern CSS selectors */
+.aica-chat__message:has(.aica-chat__code-block) {
+  padding: 0;
+}
+
+/* Use CSS nesting (future feature) */
+.aica-chat__message {
+  &--user {
+    --message-bg: var(--user-bubble);
+    --message-color: white;
+  }
+  
+  &--ai {
+    --message-bg: var(--ai-bubble);
+    --message-color: var(--ai-text);
+  }
+}
+
+/* Use CSS scrollbar styling */
+.aica-chat__messages {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neutral-400) var(--neutral-100);
+  
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: var(--neutral-100);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--neutral-400);
+    border-radius: 4px;
+  }
+}
+
+/* Use CSS container queries (future feature) */
+@container (min-width: 400px) {
+  .aica-chat__message {
+    max-width: 80%;
+  }
+}
+
+/* Use CSS view transitions (future feature) */
+@keyframes slide-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.aica-chat__message {
+  view-transition-name: message;
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Use CSS scroll-driven animations (future feature) */
+.aica-chat__message {
+  animation-timeline: scroll();
+  animation-range: entry 25% cover 50%;
+}
+
+/* Use CSS anchor positioning (future feature) */
+.aica-chat__tooltip {
+  position: absolute;
+  anchor: --message;
+  inset-block-start: 100%;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+}
+
+/* Use CSS color-mix for dynamic colors */
+.aica-chat__message--user {
+  background-color: color-mix(in srgb, var(--user-bubble) 90%, black);
+}
+
+/* Use CSS color-contrast for accessibility */
+.aica-chat__message {
+  color: color-contrast(var(--message-bg));
+}
+
+/* Use CSS container style queries (future feature) */
+@container style(--theme: dark) {
+  .aica-chat__message {
+    --message-bg: var(--ai-bubble);
+    --message-color: var(--ai-text);
+  }
+}
+
+/* Ekran powitalny */
+.aica-welcome-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 0 var(--spacing);
+  animation: fadeIn 0.5s ease;
+}
+
+.aica-welcome-icon {
+  width: 72px;
+  height: 72px;
+  background-color: var(--primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 32px;
+}
+
+.aica-welcome-screen h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.aica-welcome-screen p {
+  font-size: 15px;
+  color: var(--neutral-600);
+  margin-bottom: 28px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.dark-mode .aica-welcome-screen p {
+  color: var(--neutral-400);
+}
+
+.aica-example-prompts {
+  width: 100%;
+  max-width: 640px;
+}
+
+.aica-example-prompts h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.aica-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.aica-example-prompt {
+  background-color: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--border-radius);
+  padding: 12px 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--hover-transition), box-shadow var(--hover-transition);
+  font-size: 13px;
+  color: var(--neutral-800);
+}
+
+.dark-mode .aica-example-prompt {
+  background-color: var(--secondary-light);
+  border-color: var(--neutral-700);
+  color: var(--neutral-400);
+}
+
+.aica-example-prompt:hover {
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+}
+
+.dark-mode .aica-example-prompt:hover {
+  box-shadow: 0 2px 8px rgba(129, 140, 248, 0.15);
+}
+
+/* Wiadomości */
+.aica-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.aica-message {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  animation: slideIn 0.3s ease;
+}
+
+.aica-message.aica-user-message {
+  align-self: flex-end;
+}
+
+.aica-message.aica-ai-message {
+  align-self: flex-start;
+}
+
+.aica-message-bubble {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.aica-user-message .aica-message-bubble {
+  background-color: var(--user-bubble);
+  color: white;
+  border-radius: var(--border-radius) var(--border-radius) 0 var(--border-radius);
+}
+
+.aica-ai-message .aica-message-bubble {
+  background-color: var(--ai-bubble);
+  color: var(--ai-text);
+  border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
+}
+
+.aica-message-info {
+  font-size: 11px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.aica-user-message .aica-message-info {
+  justify-content: flex-end;
+  color: var(--neutral-500);
+}
+
+.aica-ai-message .aica-message-info {
+  color: var(--neutral-500);
+}
+
+/* Formatowanie kodu w wiadomościach */
+.aica-message pre {
+  position: relative;
+  margin: 1em 0;
+  padding: 1em;
+  overflow: auto;
+  background: #1E293B;
+  border-radius: var(--border-radius);
+}
+
+.aica-message pre code {
+  display: block;
+  padding: 0;
+  background: none;
+  white-space: pre;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+}
+
+/* Line numbers */
+.aica-message pre.line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+.aica-message pre.line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.aica-message pre.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em;
+  letter-spacing: -1px;
+  border-right: 1px solid #475569;
+  user-select: none;
+}
+
+.aica-message pre.line-numbers .line-numbers-rows > span {
+  display: block;
+  counter-increment: linenumber;
+}
+
+.aica-message pre.line-numbers .line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: #64748B;
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+}
+
+/* Syntax highlighting colors */
+.aica-message .token.comment,
+.aica-message .token.prolog,
+.aica-message .token.doctype,
+.aica-message .token.cdata {
+  color: #94A3B8;
+}
+
+.aica-message .token.punctuation {
+  color: #E2E8F0;
+}
+
+.aica-message .token.property,
+.aica-message .token.tag,
+.aica-message .token.boolean,
+.aica-message .token.number,
+.aica-message .token.constant,
+.aica-message .token.symbol {
+  color: #F472B6;
+}
+
+.aica-message .token.selector,
+.aica-message .token.attr-name,
+.aica-message .token.string,
+.aica-message .token.char,
+.aica-message .token.builtin {
+  color: #34D399;
+}
+
+.aica-message .token.operator,
+.aica-message .token.entity,
+.aica-message .token.url,
+.aica-message .language-css .token.string,
+.aica-message .style .token.string,
+.aica-message .token.variable {
+  color: #FBBF24;
+}
+
+.aica-message .token.atrule,
+.aica-message .token.attr-value,
+.aica-message .token.keyword {
+  color: #60A5FA;
+}
+
+.aica-message .token.regex,
+.aica-message .token.important {
+  color: #F87171;
+}
+
+.aica-message .token.important,
+.aica-message .token.bold {
+  font-weight: bold;
+}
+
+.aica-message .token.italic {
+  font-style: italic;
+}
+
+.aica-message .token.entity {
+  cursor: help;
+}
+
+/* Dark mode adjustments */
+.dark-mode .aica-message pre {
+  background: #0F172A;
+}
+
+.dark-mode .aica-message pre.line-numbers .line-numbers-rows {
+  border-right-color: #334155;
+}
+
+.dark-mode .aica-message pre.line-numbers .line-numbers-rows > span:before {
+  color: #64748B;
+}
+
+/* Copy button */
+.aica-code-copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  opacity: 0;
+}
+
+.aica-message pre:hover .aica-code-copy {
+  opacity: 1;
+}
+
+.aica-code-copy:hover {
+  color: #E2E8F0;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.aica-code-copy.copied {
+  color: #34D399;
+  background: rgba(52, 211, 153, 0.1);
+}
+
+.dark-mode .aica-code-copy {
+  color: #64748B;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .aica-code-copy:hover {
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .aica-code-copy.copied {
+  color: #34D399;
+  background: rgba(52, 211, 153, 0.1);
+}
+
+/* Code block header */
+.aica-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  font-size: 0.875rem;
+  color: #94A3B8;
+}
+
+.aica-code-header .aica-code-language {
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.dark-mode .aica-code-header {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Code block with header */
+.aica-message pre.has-header {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 0;
+}
+
+/* Inputy i akcje */
+.aica-input-container {
+  padding: 14px;
+  border-top: 1px solid var(--neutral-200);
+  background-color: white;
+}
+
+.dark-mode .aica-input-container {
+  background-color: var(--secondary);
+  border-top-color: var(--neutral-700);
+}
+
+.aica-input-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  background-color: var(--neutral-50);
+  border-radius: var(--border-radius);
+  padding: 8px 10px;
+  border: 1px solid var(--neutral-200);
+  transition: border-color var(--hover-transition), box-shadow var(--hover-transition);
+}
+
+.dark-mode .aica-input-wrapper {
+  background-color: var(--secondary-light);
+  border-color: var(--neutral-700);
+}
+
+.aica-input-wrapper:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.dark-mode .aica-input-wrapper:focus-within {
+  box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2);
+}
+
+#aica-message-input {
+  flex: 1;
+  border: none;
+  background: none;
+  resize: none;
+  outline: none;
+  font-size: 14px;
+  min-height: 24px;
+  max-height: 200px;
+  line-height: 1.5;
+  padding: 6px 0;
+  color: var(--neutral-900);
+}
+
+.dark-mode #aica-message-input {
+  color: var(--neutral-300);
+}
+
+#aica-message-input::placeholder {
+  color: var(--neutral-500);
+}
+
+.aica-input-tools {
+  display: flex;
+  gap: 6px;
+}
+
+.aica-tool-button {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neutral-500);
+  cursor: pointer;
+  transition: background-color var(--hover-transition), color var(--hover-transition);
+}
+
+.aica-tool-button:hover {
+  background-color: var(--neutral-200);
+  color: var(--neutral-800);
+}
+
+.dark-mode .aica-tool-button:hover {
+  background-color: var(--neutral-700);
+  color: var(--neutral-300);
+}
+
+.aica-file-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.aica-send-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--hover-transition), transform var(--hover-transition);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+.aica-send-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.aica-send-button:disabled {
+  background-color: var(--neutral-300);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.aica-input-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--neutral-500);
+}
+
+.aica-model-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.aica-model-name {
+  font-weight: 600;
+  color: var(--neutral-700);
+}
+
+.dark-mode .aica-model-name {
+  color: var(--neutral-400);
+}
+
+/* Stany ładowania */
+.aica-typing-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.aica-typing-dot {
+  width: 4px; 
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--neutral-400);
+  animation: pulseAnimation 1.4s infinite;
+}
+
+.aica-typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.aica-typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* Animacje */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal dla zmiany nazwy rozmowy */
+.aica-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  padding: 20px;
+}
+
+.aica-modal-content {
+  background-color: white;
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 480px;
+  box-shadow: var(--card-shadow);
+  animation: fadeInDown 0.3s ease forwards;
+}
+
+.dark-mode .aica-modal-content {
+  background-color: var(--secondary);
+}
+
+.aica-modal-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.dark-mode .aica-modal-header {
+  border-bottom-color: var(--neutral-700);
+}
+
+.aica-modal-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.aica-modal-close {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neutral-500);
+  cursor: pointer;
+  transition: background-color var(--hover-transition), color var(--hover-transition);
+}
+
+.aica-modal-close:hover {
+  background-color: var(--neutral-100);
+  color: var(--neutral-900);
+}
+
+.dark-mode .aica-modal-close:hover {
+  background-color: var(--secondary-light);
+  color: var(--neutral-300);
+}
+
+.aica-modal-body {
+  padding: 20px;
+}
+
+.aica-form-field {
+  margin-bottom: 16px;
+}
+
+.aica-form-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--neutral-700);
+}
+
+.dark-mode .aica-form-field label {
+  color: var(--neutral-400);
+}
+
+.aica-form-field input {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--neutral-200);
+  font-size: 14px;
+  background-color: white;
+  color: var(--neutral-900);
+  transition: border-color var(--hover-transition), box-shadow var(--hover-transition);
+}
+
+.dark-mode .aica-form-field input {
+  background-color: var(--secondary-light);
+  border-color: var(--neutral-700);
+  color: var(--neutral-300);
+}
+
+.aica-form-field input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.dark-mode .aica-form-field input:focus {
+  box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2);
+}
+
+.aica-modal-footer {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid var(--neutral-200);
+}
+
+.dark-mode .aica-modal-footer {
+  border-top-color: var(--neutral-700);
+}
+
+.aica-button {
+  padding: 8px 14px;
+  border-radius: var(--border-radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--hover-transition), color var(--hover-transition), border-color var(--hover-transition);
+}
+
+.aica-button-secondary {
+  background-color: white;
+  color: var(--neutral-700);
+  border: 1px solid var(--neutral-300);
+}
+
+.dark-mode .aica-button-secondary {
+  background-color: var(--secondary-light);
+  color: var(--neutral-400);
+  border-color: var(--neutral-700);
+}
+
+.aica-button-secondary:hover {
+  background-color: var(--neutral-100);
+  color: var(--neutral-900);
+}
+
+.dark-mode .aica-button-secondary:hover {
+  background-color: var(--secondary-lighter);
+  color: var(--neutral-300);
+}
+
+.aica-button-primary {
+  background-color: var(--primary);
+  color: white;
+  border: 1px solid var(--primary);
+}
+
+.aica-button-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* Dialog potwierdzenia */
+.aica-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  padding: 20px;
+}
+
+.aica-dialog-content {
+  background-color: white;
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--card-shadow);
+  animation: fadeInDown 0.3s ease forwards;
+}
+
+.dark-mode .aica-dialog-content {
+  background-color: var(--secondary);
+}
+
+.aica-dialog-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.dark-mode .aica-dialog-header {
+  border-bottom-color: var(--neutral-700);
+}
+
+.aica-dialog-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.aica-dialog-close {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neutral-500);
+  cursor: pointer;
+  transition: background-color var(--hover-transition), color var(--hover-transition);
+}
+
+.aica-dialog-close:hover {
+  background-color: var(--neutral-100);
+  color: var(--neutral-900);
+}
+
+.dark-mode .aica-dialog-close:hover {
+  background-color: var(--secondary-light);
+  color: var(--neutral-300);
+}
+
+.aica-dialog-body {
+  padding: 20px;
+}
+
+.aica-dialog-body p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--neutral-700);
+}
+
+.dark-mode .aica-dialog-body p {
+  color: var(--neutral-400);
+}
+
+.aica-dialog-footer {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid var(--neutral-200);
+}
+
+.dark-mode .aica-dialog-footer {
+  border-top-color: var(--neutral-700);
+}
+
+.aica-button-danger {
+  background-color: var(--error);
+  color: white;
+  border: 1px solid var(--error);
+}
+
+.aica-button-danger:hover {
+  background-color: #DC2626;
+  border-color: #DC2626;
+}
+
+/* Spinner ładowania */
+.aica-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(99, 102, 241, 0.2);
+  border-radius: 50%;
+  border-top-color: var(--primary);
+  animation: spin 1s linear infinite;
+}
+
+.dark-mode .aica-spinner {
+  border-color: rgba(129, 140, 248, 0.2);
+  border-top-color: var(--primary-light);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.aica-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 14px;
+  text-align: center;
+  color: var(--neutral-600);
+  gap: 10px;
+}
+
+/* Responsywność */
+@media (max-width: 992px) {
+  .aica-chat__sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .aica-chat__sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .aica-mobile-toggle {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  }
+  
+  .aica-mobile-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+    display: none;
+  }
+  
+  .aica-chat__sidebar.open + .aica-mobile-backdrop {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .aica-message {
+    max-width: 90%;
+  }
+  
+  .aica-examples {
+    grid-template-columns: 1fr;
+  }
+
+  .aica-conversation-title {
+    font-size: 15px;
+  }
+
+  .aica-main-header {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .aica-main-actions .aica-toolbar-button {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .aica-send-button {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .aica-welcome-screen h2 {
+    font-size: 22px;
+  }
+  
+  .aica-modal-content,
+  .aica-dialog-content {
+    max-width: 100%;
+  }
+  
+  .aica-input-container {
+    padding: 10px;
+  }
+
+  .aica-message-bubble {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Ukryte elementy */
+.aica-hidden {
+  display: none !important;
+}
+
+/* Elementy dostępności */
+.aica-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Tryb kompaktowy */
+.aica-compact-view .aica-message-bubble {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.aica-compact-view .aica-input-wrapper {
+  padding: 6px 8px;
+}
+
+.aica-compact-view #aica-message-input {
+  padding: 4px 0;
+  min-height: 20px;
+}
+
+.aica-compact-view .aica-input-container {
+  padding: 10px;
+}
+
+.aica-compact-view .aica-toolbar-button,
+.aica-compact-view .aica-tool-button {
+  width: 28px;
+  height: 28px;
+}
+
+.aica-compact-view .aica-send-button {
+  width: 36px;
+  height: 36px;
+}
+
+.aica-compact-view .aica-modal-header,
+.aica-compact-view .aica-modal-body,
+.aica-compact-view .aica-modal-footer,
+.aica-compact-view .aica-dialog-header,
+.aica-compact-view .aica-dialog-body,
+.aica-compact-view .aica-dialog-footer {
+  padding: 12px;
+}
+
+/* Podświetlanie składni kodu */
+.aica-message pre code.language-php {
+  color: #f8f8f2;
+}
+
+.aica-message pre code .token.keyword {
+  color: #ff79c6;
+}
+
+.aica-message pre code .token.string {
+  color: #f1fa8c;
+}
+
+.aica-message pre code .token.comment {
+  color: #6272a4;
+}
+
+.aica-message pre code .token.function {
+  color: #50fa7b;
+}
+
+.aica-message pre code .token.operator {
+  color: #ff79c6;
+}
+
+.aica-message pre code .token.variable {
+  color: #bd93f9;
+}
+
+.aica-message pre code .token.punctuation {
+  color: #f8f8f2;
+}
+
+.aica-message pre code .token.number {
+  color: #bd93f9;
+}
+
+.aica-message pre code .token.boolean {
+  color: #bd93f9;
+}
+
+.aica-message pre code .token.property {
+  color: #66d9ef;
+}
+
+/* Oznaczanie tekstu kodem */
+.aica-mention {
+  background-color: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dark-mode .aica-mention {
+  background-color: rgba(129, 140, 248, 0.2);
+  color: var(--primary-light);
+}
+
+/* Powiadomienia */
+.aica-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2000;
+  max-width: 320px;
+  animation: slideInRight 0.3s ease forwards;
+}
+
+.aica-notification-content {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 4px solid var(--primary);
+}
+
+.dark-mode .aica-notification-content {
+  background-color: var(--secondary-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.aica-notification-message {
+  font-size: 13px;
+  color: var(--neutral-800);
+  margin-right: 10px;
+}
+
+.dark-mode .aica-notification-message {
+  color: var(--neutral-300);
+}
+
+.aica-notification-close {
+  background: none;
+  border: none;
+  color: var(--neutral-500);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color var(--hover-transition);
+}
+
+.aica-notification-close:hover {
+  background-color: var(--neutral-200);
+  color: var(--neutral-800);
+}
+
+.dark-mode .aica-notification-close:hover {
+  background-color: var(--neutral-700);
+  color: var(--neutral-300);
+}
+
+.aica-notification-success .aica-notification-content {
+  border-left-color: var(--success);
+}
+
+.aica-notification-error .aica-notification-content {
+  border-left-color: var(--error);
+}
+
+.aica-notification-warning .aica-notification-content {
+  border-left-color: var(--warning);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Lazy loading dla obrazów */
+.aica-lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.aica-lazy-image.aica-image-loaded {
+    opacity: 1;
+}
+
+/* Placeholder dla obrazów */
+.aica-lazy-image[src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E"] {
+    background-color: #f5f5f5;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Animacja ładowania dla obrazów */
+@keyframes imageLoading {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.aica-lazy-image:not(.aica-image-loaded) {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: imageLoading 1.5s infinite;
+}
+
+/* Responsywność obrazów */
+@media (max-width: 768px) {
+    .aica-lazy-image {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Dark mode dla obrazów */
+.dark-mode .aica-lazy-image:not(.aica-image-loaded) {
+    background: linear-gradient(90deg, #2a2a2a 25%, #333333 50%, #2a2a2a 75%);
+    background-size: 200% 100%;
+}
+
+.dark-mode .aica-lazy-image[src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E"] {
+    background-color: #2a2a2a;
+}
+
+/* Chat Container */
+.aica-chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--aica-bg-primary);
+    color: var(--aica-text-primary);
+}

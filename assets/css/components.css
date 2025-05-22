@@ -1,0 +1,184 @@
+/* Common Components */
+
+/* Buttons */
+.aica-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--aica-radius);
+    font-weight: 500;
+    transition: var(--aica-transition);
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.aica-button-primary {
+    background: var(--aica-primary);
+    color: var(--aica-text-white);
+}
+
+.aica-button-primary:hover {
+    background: var(--aica-primary-hover);
+}
+
+.aica-button-secondary {
+    background: var(--aica-bg-secondary);
+    color: var(--aica-text-secondary);
+}
+
+.aica-button-secondary:hover {
+    background: var(--aica-bg-tertiary);
+}
+
+.aica-button-danger {
+    background: var(--aica-danger);
+    color: var(--aica-text-white);
+}
+
+.aica-button-danger:hover {
+    background: var(--aica-error-hover);
+}
+
+/* Cards */
+.aica-card {
+    background: var(--aica-bg-primary);
+    border-radius: var(--aica-radius-lg);
+    box-shadow: var(--aica-shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: var(--aica-transition);
+}
+
+.aica-card:hover {
+    box-shadow: var(--aica-shadow-md);
+}
+
+/* Forms */
+.aica-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.aica-label {
+    display: block;
+    font-weight: 500;
+    color: var(--aica-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.aica-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--aica-bg-tertiary);
+    border-radius: var(--aica-radius);
+    background: var(--aica-bg-primary);
+    color: var(--aica-text-primary);
+    transition: var(--aica-transition);
+}
+
+.aica-input:focus {
+    border-color: var(--aica-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+/* Notifications */
+.aica-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2000;
+    max-width: 320px;
+    animation: slideInRight 0.3s ease forwards;
+}
+
+.aica-notification-content {
+    background-color: var(--aica-bg-primary);
+    border-radius: var(--aica-radius);
+    box-shadow: var(--aica-shadow);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left: 4px solid var(--aica-primary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Loading Spinner */
+.aica-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-top: 2px solid var(--aica-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode {
+    .aica-button-secondary {
+        background: var(--aica-bg-tertiary);
+        color: var(--aica-text-secondary);
+    }
+    
+    .aica-input {
+        background: var(--aica-bg-tertiary);
+        border-color: var(--aica-bg-dark);
+        color: var(--aica-text-primary);
+    }
+    
+    .aica-notification-content {
+        background: var(--aica-bg-tertiary);
+        box-shadow: var(--aica-shadow-lg);
+    }
+    
+    .aica-spinner {
+        border-color: rgba(255, 255, 255, 0.1);
+        border-top-color: var(--aica-primary);
+    }
+} 

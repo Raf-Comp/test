@@ -1,0 +1,546 @@
+@import 'fonts.css';
+@import 'variables.css';
+@import 'components.css';
+
+/* Admin Panel Styles */
+.aica-admin-wrap {
+    margin: 20px;
+    font-family: var(--font-sans);
+}
+
+/* Style dla pola hasła */
+.aica-password-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.aica-password-field input[type="password"],
+.aica-password-field input[type="text"] {
+    flex-grow: 1;
+    padding-right: 40px;
+}
+
+.aica-toggle-password {
+    position: absolute !important;
+    right: 1px;
+    top: 1px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 8px !important;
+    height: calc(100% - 2px) !important;
+    cursor: pointer;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aica-toggle-password:hover {
+    color: #000;
+}
+
+.aica-toggle-password .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Style dla testowania API */
+.aica-api-test {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.aica-api-test-result {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.aica-api-test-result.loading {
+    color: #666;
+}
+
+.aica-api-test-result.success {
+    color: #00a32a;
+}
+
+.aica-api-test-result.error {
+    color: #d63638;
+}
+
+.aica-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-top: 2px solid #2271b1;
+    border-radius: 50%;
+    animation: aica-spin 1s linear infinite;
+}
+
+@keyframes aica-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Podstawowe style dla czatu */
+.aica-chat-wrapper {
+    display: flex;
+    height: calc(100vh - 32px);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f0f1;
+}
+
+.aica-sidebar {
+    width: 280px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+}
+
+.aica-main-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.aica-messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #f0f0f1;
+}
+
+.aica-input-container {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.aica-input-wrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    background-color: #f0f0f1;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#aica-message-input {
+    flex: 1;
+    border: none;
+    background: none;
+    resize: none;
+    outline: none;
+    font-size: 14px;
+    min-height: 24px;
+    max-height: 200px;
+    line-height: 1.5;
+    padding: 6px 0;
+}
+
+.aica-send-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background-color: #2271b1;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.aica-send-button:hover {
+    background-color: #135e96;
+}
+
+.aica-send-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Tryb ciemny */
+[data-theme="dark"] {
+    --aica-bg-primary: #1e293b;
+    --aica-bg-secondary: #0f172a;
+    --aica-bg-tertiary: #1e293b;
+    --aica-text-primary: #f8fafc;
+    --aica-text-secondary: #cbd5e1;
+    --aica-text-light: #64748b;
+}
+
+/* Kontener główny */
+.aica-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Karty */
+.aica-card {
+    background: var(--aica-bg-primary);
+    border-radius: var(--aica-radius-lg);
+    box-shadow: var(--aica-shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: var(--aica-transition);
+}
+
+.aica-card:hover {
+    box-shadow: var(--aica-shadow-md);
+}
+
+/* Nagłówki */
+.aica-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.aica-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--aica-text-primary);
+    margin: 0;
+}
+
+/* Przyciski */
+.aica-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--aica-radius);
+    font-weight: 500;
+    transition: var(--aica-transition);
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.aica-button-primary {
+    background: var(--aica-primary);
+    color: var(--aica-text-white);
+}
+
+.aica-button-primary:hover {
+    background: var(--aica-primary-hover);
+}
+
+.aica-button-secondary {
+    background: var(--aica-bg-secondary);
+    color: var(--aica-text-secondary);
+}
+
+.aica-button-secondary:hover {
+    background: var(--aica-bg-tertiary);
+}
+
+/* Formularze */
+.aica-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.aica-label {
+    display: block;
+    font-weight: 500;
+    color: var(--aica-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.aica-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--aica-bg-tertiary);
+    border-radius: var(--aica-radius);
+    background: var(--aica-bg-primary);
+    color: var(--aica-text-primary);
+    transition: var(--aica-transition);
+}
+
+.aica-input:focus {
+    border-color: var(--aica-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+/* Chat */
+.aica-chat-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 200px);
+    background: var(--aica-bg-primary);
+    border-radius: var(--aica-radius-lg);
+    box-shadow: var(--aica-shadow);
+    overflow: hidden;
+}
+
+.aica-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+.aica-message {
+    display: flex;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.aica-message-user {
+    justify-content: flex-end;
+}
+
+.aica-message-content {
+    max-width: 80%;
+    padding: 1rem 1.5rem;
+    border-radius: var(--aica-radius-lg);
+    background: var(--aica-bg-secondary);
+    color: var(--aica-text-primary);
+}
+
+.aica-message-user .aica-message-content {
+    background: var(--aica-primary);
+    color: var(--aica-text-white);
+}
+
+.aica-chat-input {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--aica-bg-secondary);
+    border-top: 1px solid var(--aica-bg-tertiary);
+}
+
+.aica-chat-input textarea {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--aica-bg-tertiary);
+    border-radius: var(--aica-radius);
+    background: var(--aica-bg-primary);
+    color: var(--aica-text-primary);
+    resize: none;
+    min-height: 60px;
+    max-height: 150px;
+    transition: var(--aica-transition);
+}
+
+.aica-chat-input textarea:focus {
+    border-color: var(--aica-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+/* Animacje */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ładowanie */
+.aica-loading {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid var(--aica-bg-tertiary);
+    border-radius: 50%;
+    border-top-color: var(--aica-primary);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Powiadomienia */
+.aica-notice {
+    padding: 1rem 1.5rem;
+    border-radius: var(--aica-radius);
+    margin-bottom: 1rem;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.aica-notice-success {
+    background: var(--aica-success);
+    color: var(--aica-text-white);
+}
+
+.aica-notice-error {
+    background: var(--aica-danger);
+    color: var(--aica-text-white);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Przełączniki */
+.aica-switch {
+    position: relative;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+}
+
+.aica-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.aica-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--aica-bg-tertiary);
+    transition: var(--aica-transition);
+    border-radius: var(--aica-radius-full);
+}
+
+.aica-switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 1.25rem;
+    width: 1.25rem;
+    left: 0.125rem;
+    bottom: 0.125rem;
+    background-color: var(--aica-bg-primary);
+    transition: var(--aica-transition);
+    border-radius: 50%;
+}
+
+.aica-switch input:checked + .aica-switch-slider {
+    background-color: var(--aica-primary);
+}
+
+.aica-switch input:checked + .aica-switch-slider:before {
+    transform: translateX(1.5rem);
+}
+
+/* Tooltips */
+.aica-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.aica-tooltip .aica-tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background: var(--aica-bg-dark);
+    color: var(--aica-text-white);
+    border-radius: var(--aica-radius);
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: var(--aica-transition);
+}
+
+.aica-tooltip:hover .aica-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Tabele */
+.aica-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+.aica-table th,
+.aica-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--aica-bg-tertiary);
+}
+
+.aica-table th {
+    font-weight: 600;
+    color: var(--aica-text-secondary);
+    background: var(--aica-bg-secondary);
+}
+
+.aica-table tr:hover {
+    background: var(--aica-bg-secondary);
+}
+
+/* Paginacja */
+.aica-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.aica-pagination-item {
+    padding: 0.5rem 1rem;
+    border-radius: var(--aica-radius);
+    background: var(--aica-bg-secondary);
+    color: var(--aica-text-secondary);
+    cursor: pointer;
+    transition: var(--aica-transition);
+}
+
+.aica-pagination-item:hover {
+    background: var(--aica-bg-tertiary);
+}
+
+.aica-pagination-item.active {
+    background: var(--aica-primary);
+    color: var(--aica-text-white);
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .aica-container {
+        padding: 1rem;
+    }
+
+    .aica-chat-container {
+        height: calc(100vh - 150px);
+    }
+
+    .aica-message-content {
+        max-width: 90%;
+    }
+}

@@ -1,0 +1,39 @@
+/* Font definitions */
+@font-face {
+    font-family: 'System UI';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('-apple-system'),
+         local('BlinkMacSystemFont'),
+         local('Segoe UI'),
+         local('Roboto'),
+         local('Helvetica Neue'),
+         local('Arial'),
+         local('sans-serif');
+}
+
+@font-face {
+    font-family: 'System Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Consolas'),
+         local('Monaco'),
+         local('Andale Mono'),
+         local('Ubuntu Mono'),
+         local('monospace');
+}
+
+/* Preload critical fonts */
+@font-face {
+    font-family: 'PrismTreeview';
+    src: url('data:application/font-woff;base64,d09GRgABAAAAAAgYAAsAAAAAEGAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADsAAABUIIslek9TLzIAAAFEAAAAPwAAAFY1UkH9Y21hcAAAAYQAAAB/AAAC') format('woff');
+    font-display: swap;
+}
+
+:root {
+    /* Typography */
+    --font-sans: 'System UI', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: 'System Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+} 

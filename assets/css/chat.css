@@ -1,0 +1,41 @@
+/* Styl dla przycisku "załaduj więcej" */
+.load-more-messages {
+    text-align: center;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #2271b1;
+    transition: background-color 0.3s;
+}
+
+.load-more-messages:hover {
+    background-color: #e0e0e0;
+}
+
+/* Styl dla wskaźnika ładowania */
+.load-more-indicator {
+    text-align: center;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* Styl dla znacznika czasu wiadomości */
+.message-time {
+    font-size: 0.75em;
+    color: #999;
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* Poprawka dla kontenera czatu, aby obsługiwał scrollowanie */
+.aica-chat-messages {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 15px;
+    flex-grow: 1;
+    height: calc(100% - 120px);
+}

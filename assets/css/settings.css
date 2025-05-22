@@ -1,0 +1,1234 @@
+@import 'fonts.css';
+
+/* Font definitions */
+@font-face {
+    font-family: 'System UI';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('-apple-system'),
+         local('BlinkMacSystemFont'),
+         local('Segoe UI'),
+         local('Roboto'),
+         local('Helvetica Neue'),
+         local('Arial'),
+         local('sans-serif');
+}
+
+@font-face {
+    font-family: 'System Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Consolas'),
+         local('Monaco'),
+         local('Andale Mono'),
+         local('Ubuntu Mono'),
+         local('monospace');
+}
+
+:root {
+    --font-sans: 'System UI', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-mono: 'System Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    --aica-primary: #2271b1;
+    --aica-primary-light: #72aee6;
+    --aica-secondary: #135e96;
+    --aica-accent: #00a32a;
+    --aica-accent-light: #00ba37;
+    --aica-warning: #dba617;
+    --aica-warning-light: #f0c33c;
+    --aica-error: #d63638;
+    --aica-error-light: #e65054;
+    --aica-success: #00a32a;
+    --aica-success-light: #00ba37;
+    --aica-text: #1d2327;
+    --aica-text-light: #50575e;
+    --aica-border: #dcdcde;
+    --aica-border-light: #f0f0f1;
+    --aica-background: #f6f7f7;
+    --aica-background-light: #ffffff;
+    --aica-shadow: rgba(0, 0, 0, 0.05);
+    --aica-radius: 4px;
+    --aica-transition: all 0.2s ease-in-out;
+    --aica-primary-dark: #4f46e5;
+    --aica-text-lighter: #94a3b8;
+    --aica-bg-light: #f8fafc;
+    --aica-card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --aica-border-radius: 8px;
+}
+
+/* Reset and base styles */
+.aica-admin-container {
+    max-width: 1280px;
+    margin: 32px auto 0;
+    font-family: var(--font-sans);
+    color: var(--aica-text);
+    line-height: 1.5;
+}
+
+.aica-admin-container * {
+    box-sizing: border-box;
+}
+
+.aica-admin-container a {
+    color: var(--aica-primary);
+    text-decoration: none;
+    transition: var(--aica-transition);
+}
+
+.aica-admin-container a:hover {
+    color: var(--aica-primary-dark);
+    text-decoration: underline;
+}
+
+/* Header */
+.aica-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.aica-header-content h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: var(--aica-text);
+}
+
+.aica-version {
+    margin: 0;
+    font-size: 14px;
+    color: var(--aica-text-light);
+}
+
+.aica-header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Buttons */
+.aica-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--aica-border-radius);
+    cursor: pointer;
+    transition: var(--aica-transition);
+    border: none;
+    background: none;
+    line-height: 1.5;
+}
+
+.aica-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--aica-primary-light);
+}
+
+.aica-button-primary {
+    background-color: var(--aica-primary);
+    color: white;
+}
+
+.aica-button-primary:hover {
+    background-color: var(--aica-primary-dark);
+}
+
+.aica-button-secondary {
+    background-color: white;
+    color: var(--aica-text);
+    border: 1px solid var(--aica-border);
+}
+
+.aica-button-secondary:hover {
+    background-color: var(--aica-bg-light);
+}
+
+.aica-button-outlined {
+    border: 1px solid var(--aica-primary);
+    color: var(--aica-primary);
+}
+
+.aica-button-outlined:hover {
+    background-color: rgba(99, 102, 241, 0.05);
+}
+
+.aica-button-text {
+    color: var(--aica-text-light);
+}
+
+.aica-button-text:hover {
+    color: var(--aica-text);
+}
+
+.aica-button-icon {
+    padding: 8px;
+    min-height: 40px;
+}
+
+.aica-button-sm {
+    padding: 4px 12px;
+    font-size: 13px;
+}
+
+.aica-button .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.aica-button-sm .dashicons,
+.aica-button-icon .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Notices */
+.aica-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    margin-bottom: 32px;
+    border-radius: var(--aica-border-radius);
+    position: relative;
+}
+
+.aica-notice-success {
+    background-color: var(--aica-success-light);
+    border-left: 4px solid var(--aica-success);
+}
+
+.aica-notice-warning {
+    background-color: var(--aica-warning-light);
+    border-left: 4px solid var(--aica-warning);
+}
+
+.aica-notice-error {
+    background-color: var(--aica-error-light);
+    border-left: 4px solid var(--aica-error);
+}
+
+.aica-notice-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+.aica-notice-success .aica-notice-icon {
+    color: var(--aica-success);
+}
+
+.aica-notice-warning .aica-notice-icon {
+    color: var(--aica-warning);
+}
+
+.aica-notice-error .aica-notice-icon {
+    color: var(--aica-error);
+}
+
+.aica-notice-content {
+    flex: 1;
+}
+
+.aica-notice-title {
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.aica-notice-message {
+    margin: 0;
+    color: var(--aica-text-light);
+}
+
+.aica-notice-dismiss {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--aica-text-light);
+}
+
+.aica-notice-dismiss:hover {
+    color: var(--aica-text);
+}
+
+/* Settings Container */
+.aica-settings-container {
+    display: flex;
+    gap: 24px;
+    background: white;
+    border-radius: var(--aica-border-radius);
+    box-shadow: var(--aica-card-shadow);
+    overflow: hidden;
+}
+
+/* Sidebar */
+.aica-settings-sidebar {
+    width: 260px;
+    background-color: #f8fafc;
+    border-right: 1px solid var(--aica-border);
+    display: flex;
+    flex-direction: column;
+}
+
+.aica-sidebar-header {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--aica-border);
+}
+
+.aica-sidebar-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--aica-primary-light);
+}
+
+.aica-sidebar-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.aica-sidebar-title {
+    font-weight: 600;
+    margin: 0;
+    font-size: 16px;
+}
+
+.aica-sidebar-desc {
+    margin: 0;
+    font-size: 13px;
+    color: var(--aica-text-light);
+}
+
+.aica-settings-tabs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex: 1;
+}
+
+.aica-tab-item {
+    padding: 14px 24px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--aica-transition);
+    border-left: 4px solid transparent;
+}
+
+.aica-tab-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.aica-tab-item.active {
+    background-color: rgba(99, 102, 241, 0.05);
+    color: var(--aica-primary);
+    border-left-color: var(--aica-primary);
+    font-weight: 500;
+}
+
+.aica-tab-icon {
+    color: var(--aica-text-light);
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.aica-tab-item.active .aica-tab-icon {
+    color: var(--aica-primary);
+}
+
+.aica-sidebar-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--aica-border);
+    font-size: 13px;
+    color: var(--aica-text-light);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.aica-sidebar-footer p {
+    margin: 0;
+}
+
+/* Content Area */
+.aica-settings-content {
+    flex: 1;
+    padding: 32px;
+    max-width: calc(100% - 260px);
+}
+
+.aica-tab-content {
+    display: none;
+}
+
+.aica-tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Cards */
+.aica-settings-card {
+    margin-bottom: 32px;
+    border: 1px solid var(--aica-border);
+    border-radius: var(--aica-border-radius);
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.aica-card-header {
+    padding: 20px 24px;
+    background-color: #f8fafc;
+    border-bottom: 1px solid var(--aica-border);
+}
+
+.aica-card-header h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--aica-text);
+}
+
+.aica-card-description {
+    margin: 6px 0 0 0;
+    font-size: 14px;
+    color: var(--aica-text-light);
+}
+
+.aica-card-body {
+    padding: 24px;
+}
+
+/* Fields */
+.aica-field-row {
+    margin-bottom: 32px;
+}
+
+.aica-field-row:last-child {
+    margin-bottom: 0;
+}
+
+.aica-field-label {
+    margin-bottom: 12px;
+}
+
+.aica-field-label label {
+    display: block;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: var(--aica-text);
+}
+
+.aica-field-description {
+    font-size: 13px;
+    color: var(--aica-text-light);
+    margin: 0;
+}
+
+.aica-field-input input[type="text"],
+.aica-field-input input[type="password"],
+.aica-field-input input[type="number"],
+.aica-field-input select,
+.aica-field-input textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--aica-border);
+    border-radius: var(--aica-border-radius);
+    font-size: 14px;
+    transition: var(--aica-transition);
+    color: var(--aica-text);
+    background-color: white;
+}
+
+.aica-field-input input[type="text"]:focus,
+.aica-field-input input[type="password"]:focus,
+.aica-field-input input[type="number"]:focus,
+.aica-field-input select:focus,
+.aica-field-input textarea:focus {
+    border-color: var(--aica-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--aica-primary-light);
+}
+
+.aica-field-input textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* API Key Field */
+.aica-api-key-field {
+    display: flex;
+    position: relative;
+}
+
+.aica-api-key-field input {
+    padding-right: 40px;
+}
+
+.aica-toggle-password {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--aica-text-light);
+    transition: var(--aica-transition);
+}
+
+.aica-toggle-password:hover {
+    color: var(--aica-text);
+}
+
+/* Range Field */
+.aica-range-field {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.aica-range-field input[type="range"] {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    background: #e2e8f0;
+    border-radius: 3px;
+    outline: none;
+}
+
+.aica-range-field input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--aica-primary);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: var(--aica-transition);
+}
+
+.aica-range-field input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--aica-primary);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: var(--aica-transition);
+}
+
+.aica-range-field input[type="range"]::-webkit-slider-thumb:hover {
+    background: var(--aica-primary-dark);
+}
+
+.aica-range-value-container {
+    display: flex;
+    align-items: center;
+    min-width: 100px;
+}
+
+.aica-range-field input[type="number"] {
+    width: 80px;
+    text-align: right;
+}
+
+.aica-range-unit {
+    margin-left: 8px;
+    color: var(--aica-text-light);
+    font-size: 14px;
+}
+
+.aica-range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--aica-text-light);
+}
+
+/* Toggle Switch */
+.aica-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+}
+
+.aica-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.aica-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e2e8f0;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.aica-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+input:checked + .aica-toggle-slider {
+    background-color: var(--aica-primary);
+}
+
+input:checked + .aica-toggle-slider:before {
+    transform: translateX(24px);
+}
+
+/* Tags Input */
+.aica-tags-input-container {
+    margin-bottom: 12px;
+}
+
+.aica-tags-input-field {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.aica-tags-input-field input {
+    flex: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+}
+
+.aica-tags-input-field button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.aica-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.aica-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--aica-border-radius);
+    padding: 6px 10px;
+    font-size: 13px;
+    transition: var(--aica-transition);
+}
+
+.aica-tag:hover {
+    background-color: #e2e8f0;
+}
+
+.aica-remove-tag {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--aica-text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aica-remove-tag:hover {
+    color: var(--aica-error);
+}
+
+.aica-remove-tag .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+}
+
+/* Form Actions */
+.aica-form-actions {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--aica-border);
+    text-align: right;
+}
+
+/* Models Grid */
+.aica-models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.aica-model-card {
+    position: relative;
+    border-radius: var(--aica-border-radius);
+    overflow: hidden;
+    transition: var(--aica-transition);
+    border: 2px solid transparent;
+}
+
+.aica-model-card.selected {
+    border-color: var(--aica-primary);
+}
+
+.aica-model-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.aica-model-content {
+    display: block;
+    cursor: pointer;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid var(--aica-border);
+    border-radius: var(--aica-border-radius);
+    transition: var(--aica-transition);
+    height: 100%;
+}
+
+.aica-model-card:hover .aica-model-content {
+    border-color: var(--aica-primary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.aica-model-card.selected .aica-model-content {
+    border-color: var(--aica-primary);
+    box-shadow: 0 0 0 1px var(--aica-primary);
+}
+
+.aica-model-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.aica-model-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--aica-text-light);
+}
+
+.aica-model-card.opus .aica-model-icon {
+    background-color: #818cf8;
+    color: white;
+}
+
+.aica-model-card.sonnet .aica-model-icon {
+    background-color: #60a5fa;
+    color: white;
+}
+
+.aica-model-card.haiku .aica-model-icon {
+    background-color: #34d399;
+    color: white;
+}
+
+.aica-model-card.instant .aica-model-icon {
+    background-color: #fcd34d;
+    color: #92400e;
+}
+
+.aica-model-badge {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 24px;
+    font-weight: 500;
+    background-color: #f1f5f9;
+    color: var(--aica-text-light);
+}
+
+.aica-model-card.opus .aica-model-badge {
+    background-color: #e0e7ff;
+    color: #4338ca;
+}
+
+.aica-model-card.sonnet .aica-model-badge {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.aica-model-card.haiku .aica-model-badge {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.aica-model-card.instant .aica-model-badge {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.aica-model-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: var(--aica-text);
+}
+
+.aica-model-desc {
+    font-size: 13px;
+    color: var(--aica-text-light);
+    margin-bottom: 16px;
+    height: 60px;
+    overflow: hidden;
+}
+
+.aica-model-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.aica-model-spec {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aica-spec-label {
+    font-size: 13px;
+    color: var(--aica-text-light);
+}
+
+.aica-rating-dots {
+    display: flex;
+    gap: 3px;
+}
+
+.aica-rating-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+}
+
+.aica-rating-dot.filled {
+    background-color: var(--aica-primary);
+}
+
+/* Template Items */
+.aica-template-item {
+    margin-bottom: 16px;
+    border: 1px solid var(--aica-border);
+    border-radius: var(--aica-border-radius);
+    overflow: hidden;
+}
+
+.aica-template-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background-color: #f8fafc;
+    border-bottom: 1px solid var(--aica-border);
+}
+
+.aica-template-header input {
+    border: none;
+    background: none;
+    padding: 4px 8px;
+    font-weight: 500;
+    width: 100%;
+}
+
+.aica-template-header input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.aica-template-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.aica-template-item textarea {
+    border: none;
+    border-radius: 0;
+    resize: vertical;
+    min-height: 80px;
+}
+
+.aica-template-item textarea:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* Auto Purge Container */
+.aica-auto-purge-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.aica-auto-purge-days {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.aica-auto-purge-days input {
+    width: 80px;
+    text-align: center;
+}
+
+.aica-days-label {
+    color: var(--aica-text-light);
+    font-size: 14px;
+}
+
+/* Field Actions */
+.aica-field-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* API Test Result */
+.aica-api-test-result {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.aica-api-test-result.loading {
+    color: var(--aica-text-light);
+}
+
+.aica-api-test-result.success {
+    color: var(--aica-success);
+}
+
+.aica-api-test-result.error {
+    color: var(--aica-error);
+}
+
+.aica-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-top: 2px solid var(--aica-primary);
+    border-radius: 50%;
+    animation: aica-spin 1s linear infinite;
+}
+
+@keyframes aica-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+    .aica-settings-container {
+        flex-direction: column;
+    }
+    
+    .aica-settings-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--aica-border);
+    }
+    
+    .aica-settings-content {
+        max-width: 100%;
+    }
+    
+    .aica-settings-tabs {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .aica-tab-item {
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+        text-align: center;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .aica-tab-item.active {
+        border-left-color: transparent;
+        border-bottom-color: var(--aica-primary);
+    }
+    
+    .aica-tab-text {
+        display: none;
+    }
+    
+    .aica-field-label, 
+    .aica-field-input {
+        width: 100%;
+    }
+}
+
+/* Dodaj na końcu pliku settings.css */
+
+/* Powiadomienia */
+.aica-notification {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 16px;
+    padding: 8px 12px;
+    border-radius: var(--aica-border-radius);
+    font-size: 14px;
+    animation: fadeIn 0.3s ease;
+}
+
+.aica-notification .dashicons {
+    margin-right: 8px;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.aica-notification-success {
+    background-color: var(--aica-success-light);
+    color: var(--aica-success);
+}
+
+.aica-notification-error {
+    background-color: var(--aica-error-light);
+    color: var(--aica-error);
+}
+
+@media screen and (max-width: 600px) {
+    .aica-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .aica-header-actions {
+        width: 100%;
+    }
+    
+    .aica-button {
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .aica-models-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Pola z tokenami i kluczami API */
+.aica-password-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.aica-password-field input {
+    padding-right: 40px;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+}
+
+.aica-toggle-password {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--aica-text-light);
+    transition: var(--aica-transition);
+    padding: 0;
+    margin: 0;
+}
+
+.aica-toggle-password:hover {
+    color: var(--aica-text);
+}
+
+.aica-toggle-password:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--aica-primary-light);
+    border-radius: var(--aica-border-radius);
+}
+
+/* Wyniki testów API */
+.aica-api-test-result {
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: var(--aica-border-radius);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--aica-transition);
+}
+
+.aica-api-test-result.loading {
+    background-color: var(--aica-bg-secondary);
+    color: var(--aica-text);
+}
+
+.aica-api-test-result.success {
+    background-color: var(--aica-success-light);
+    color: var(--aica-success);
+}
+
+.aica-api-test-result.error {
+    background-color: var(--aica-danger-light);
+    color: var(--aica-danger);
+}
+
+.aica-api-test-result .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Animacja ładowania */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.aica-api-test-result.loading .dashicons-update {
+    animation: spin 1s linear infinite;
+}
+
+/* Powiadomienia */
+.aica-notice {
+    margin: 16px 0;
+    padding: 12px 16px;
+    border-radius: var(--aica-border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: slideIn 0.3s ease-out;
+}
+
+.aica-notice-success {
+    background-color: var(--aica-success-light);
+    color: var(--aica-success);
+    border: 1px solid var(--aica-success);
+}
+
+.aica-notice-error {
+    background-color: var(--aica-danger-light);
+    color: var(--aica-danger);
+    border: 1px solid var(--aica-danger);
+}
+
+.aica-notice-close {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+    font-size: 18px;
+    opacity: 0.7;
+    transition: var(--aica-transition);
+}
+
+.aica-notice-close:hover {
+    opacity: 1;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsywność */
+@media screen and (max-width: 782px) {
+    .aica-password-field input {
+        font-size: 16px; /* Zapobiega zoomowaniu na iOS */
+    }
+    
+    .aica-toggle-password {
+        width: 48px; /* Większy obszar klikalny na urządzeniach dotykowych */
+    }
+    
+    .aica-api-test-result {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+}
+
+/* Update font-family references */
+body {
+    font-family: var(--font-sans);
+}
+
+pre, code {
+    font-family: var(--font-mono);
+}
